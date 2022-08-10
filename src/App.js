@@ -1,5 +1,4 @@
-import { Route } from 'react-router-dom';
-import { Routes } from '../node_modules/react-router-dom/index';
+import { Route, Routes } from 'react-router-dom';
 import Menu from './components/Menu';
 import BluePage from './pages/BluePage';
 import RedPage from './pages/RedPage';

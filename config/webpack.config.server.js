@@ -75,7 +75,7 @@ module.exports = {
                             importLoaders: 1,
                             modules: {
                                 exportOnlyLocals: true,
-                                getLocalIndent: getCSSModuleLocalIdent,
+                                getLocalIdent: getCSSModuleLocalIdent,
                             }
                         }
                     },
