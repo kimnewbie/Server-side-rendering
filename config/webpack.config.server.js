@@ -1,9 +1,20 @@
+const nodeExternals = require('webpack-node-externals');
 const paths = require('./paths');
 const getCSSModuleLocalIdent = require('react-dev-utils/getcssmodulelocalident');
+const webpack = require('webpack');
+const getClientEnvironment = require('./env');
+
+const cssRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css$/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 /**
  * 웹팩 환경 설정 파일
  */
+
+const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
+
 module.exports = {
     mode: 'production', // 프로덕션 모드로 설저하여 최적화 옵션들을 활성화
     entry: paths.ssrIndexJs, // 엔트리 경로
@@ -110,4 +121,12 @@ module.exports = {
             },
         ],
     },
+    resolve: {
+        modules: ['node_modules']
+    },
+    externals: [
+        nodeExternals({
+            allowlist: [/@babel/],
+        }),
+    ],
 };
